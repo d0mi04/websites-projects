@@ -1,0 +1,27 @@
+.container {
+    background-color: aquamarine;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 50px 70px 50px;
+    border: solid 3px green;
+    max-width: 400px;
+  }
+  
+  .text {
+    color: darkgreen;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  #guess {
+    width: 50%;
+    height: 30px;
+    font-size: 25px;
+    border: solid 2px green;
+  }
+  
+  button {
+    width: 20%;
+    height: 30px;
+    background-color: green;
+    border: solid 2px green;
+  }
