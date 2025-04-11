@@ -25,3 +25,9 @@
     background-color: green;
     border: solid 2px green;
   }
+
+  
+#dieces {
+  width: 20%;
+  height: 20%;
+}
