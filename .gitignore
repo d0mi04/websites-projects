@@ -1,0 +1,18 @@
+# pliki systemowe i edytorów:
+.DS_Store
+Thumbs.db
+*.log
+
+# pliki tymczasowe:
+*.tmp
+*.bak
+
+# foldery edytorów:
+.vscode/
+.idea/
+
+# pliki z kompilacji lub cache:
+node_modules/
+dist/
+build/
+*.cache
