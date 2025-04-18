@@ -1,0 +1,20 @@
+body {
+    background-color: bisque;
+    padding: 20px;
+  }
+  
+  h1 {
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+  }
+  
+  p {
+    background-color: cadetblue;
+    color: antiquewhite;
+    border-radius: 10px;
+    width: 80%;
+    height: 20px;
+    padding: 10px;
+    justify-content: center;
+  }
