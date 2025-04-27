@@ -1,0 +1,10 @@
+.score-view-wrapper-leading-true {
+    color: white;
+    background-color: teal;
+    border-radius: 5px;
+}
+
+.score-view-wrapper-leading-false {
+    color: teal; 
+    background-color: transparent;
+  }
