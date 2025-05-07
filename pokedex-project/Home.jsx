@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome</h1>
-      <p>This is your personal pokedex. You can collect all pokemons' data in one place!</p>
+      <h1>Welcome to the Pokédex App</h1>
+      <p>Explore the world of Pokémon with our comprehensive Pokédex.</p>
     </div>
-  )
-}
+  );
+};
 
 export default Home;

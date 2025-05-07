@@ -1,28 +1,29 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import PokemonCard from "./PokemonCard";
 
 const Pokedex = () => {
-  const[pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
+
+  const fetchPokemons = async () => {
+    fetch("https://pokedex.mimo.dev/api/pokemon")
+      .then((response) => response.json())
+      .then((data) => setPokemons(data));
+  };
 
   useEffect(() => {
-    const fetchPokemons = async () => {
-      const response = await fetch("https://pokedex.mimo.dev/api/pokemon");
-      const data = await response.json();
-      setPokemons(data);
-    };
-
     fetchPokemons();
   }, []);
 
   return (
-    <div>
-      <h1>Pokedex</h1>
+    <>
+      <h1>All Pokemon</h1>
       <ul>
         {pokemons.map((pokemon, index) => (
-          <li key={index}>{pokemon.name}</li>
+          <PokemonCard key={index} pokemon={pokemon} />
         ))}
       </ul>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default Pokedex;
