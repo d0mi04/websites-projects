@@ -7,17 +7,42 @@ app.listen(port, () => {
 });
 
 app.get("/coinflip", (req, res) => {
-    const result = Math.floor(Math.random() * 2);
-    res.json({ result: result === 0 ? "Heads" : "Tails" });
-});
+    let times = parseInt(req.query.times) || 1;
+    let results = [];
+    for (let i = 0; i < times; i++) {
+      const result = Math.floor(Math.random() * 2);
+      results.push(result === 0 ? "Heads" : "Tails");
+    }
+  
+    res.status(200).json({
+      result: results,
+    });
+  });
 
 app.get("/diceRoll", (req, res) => {
-    const diceRoll = Math.floor(Math.random() * 6) + 1;
-    res.json({ result: diceRoll });
-});
+    let times = parseInt(req.query.times) || 1;
+    let results = [];
+    for (let i = 0; i < times; i++) {
+      const result = Math.floor(Math.random() * 6) + 1;
+      results.push(result);
+    }
+  
+    res.status(200).json({
+      result: results,
+    });
+  });
 
 app.get("/randomNumber", (req, res) => {
-    const result = Math.floor(Math.random() * 100) + 1;
-    res.json({ result: result });
-});
+  let min = parseInt(req.query.min) || 1;
+  let max = parseInt(req.query.max) || 100;
 
+  if (min >= max) {
+    return res.status(400).json({
+      error: "Min should be less than max.",
+    });
+  }
+  const result = Math.floor(Math.random() * (max - min + 1)) + min;
+  res.status(200).json({
+    result: result,
+  });
+});
