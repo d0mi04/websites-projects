@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom";
 
 const Pokemon = () => {
   const [pokemon, setPokemon] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const query = new URLSearchParams(useLocation().search)
   const pokemonName = query.get("name");
