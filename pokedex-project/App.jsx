@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./Home";
 import Pokedex from "./Pokedex";
 import Search from "./Search";
+import Pokemon from "./Pokemon";
 
 const NavigationBar = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/pokedex" element={<Pokedex />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/pokemon" element={<Pokemon />} />
       </Routes>
     </div>
   </BrowserRouter>

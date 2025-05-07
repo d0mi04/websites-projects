@@ -29,13 +29,17 @@ nav {
     z-index: 1000;
   }
   
-  nav a {
+nav a {
     text-decoration: none;
     font-weight: bold;
     color: #F7E39C;
     margin: 0 4px;
-  }
+}
   
-  nav a:hover {
+nav a:hover {
     color: black;
-  }
+}
+
+a {
+    color: black;
+}
