@@ -18,4 +18,23 @@ db.exec(`
     ('Metro 2033', 'Dymitrij Glukhovsky', 2002);
 `);
 
+db.exec(`
+  CREATE TABLE IF NOT EXISTS notes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    book_id INTEGER NOT NULL,
+    content TEXT NOT NULL,
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+
+  )`
+);
+
+db.exec(`
+  INSERT INTO notes (book_id, content) 
+  VALUES
+    (1, 'fantasy book'),
+    (2, 'amazing landscape desription, love this!'),
+    (2, 'XIV chapter finished!'),
+    (3, 'post-apocalyptic word, would recommend');
+`);
+
 module.exports = db;
