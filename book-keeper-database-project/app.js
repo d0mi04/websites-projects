@@ -20,12 +20,18 @@ app.get("/books", (req, res) => {
 
 app.get("/books/:id", (req, res) => {
   const { id } = req.params;
-  const select = db.prepare(
+  const selectBook = db.prepare(
     "SELECT * FROM books WHERE id = ?"
   );
-  const result = select.get(id); // using single item - use .get(), not run()
+  const book = selectBook.get(id); // using single item - use .get(), not run()
+
+  const selectNotes = db.prepare (
+    "SELECT * FROM notes WHERE book_id = ?"
+  );
+  const notes = selectNotes.all(id);
   res.status(200).json({
-    book: result
+    book: book,
+    notes: notes,
   });
 });
 
@@ -38,5 +44,43 @@ app.post("/books", (req, res) => {
   res.status(201).json({
     mesage: "Book added successfully",
     bookId: result.lastInsertRowid,
+  });
+});
+
+app.post("/books/:id/notes", (req, res) => {
+  const { id } = req.params;
+  const { content } = req.body;
+
+  if (!content || content.trim() === "") {
+    return res.status(400).json({
+      error: "Invalid request.",
+    });
+  }
+  const addNote = db.prepare(
+    "INSERT INTO notes (book_id, content) VALUES (?, ?)",
+  );
+  const note = addNote.run(id, content);
+  res.status(201).json({
+    message: "Note added successfully",
+    noteId: note.lastInsertRowid,
+    note: note,
+  });
+});
+
+app.delete("/books/:id", (req, res) => {
+  const { id } = req.params;
+  const deleteBook = db.prepare(
+    "DELETE FROM books WHERE id = ?"
+  );
+  const result = deleteBook.run(id);
+
+  if(result.changes === 0) {
+    return res.status(404).json({
+      error: "Book not found",
+    });
+  }
+  res.status(200).json({
+    message: "Book deleted successfully",
+    deletedBokId: id,
   });
 });
