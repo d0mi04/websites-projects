@@ -27,3 +27,45 @@ a:hover {
 section {
   padding: 2em;
 }
+
+img.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid 2px pink;
+    display: block;
+    margin: auto;
+  }
+
+  progress {
+    width: 200px;
+    height: 20px;
+    border: solid 1px black;
+    color: black;
+    background-color: #f4f4f4;
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #f4f4f4;
+  }
+  
+  progress::-webkit-progress-value  {
+    background-color: black;
+  }
+  
+  progress::-moz-progress-bar  {
+    background-color: black;
+  }
+
+  details {
+    display: flex;
+    border: dashed 1px pink;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  details:hover {
+    border: solid 1px palevioletred;
+  }
+
+  
