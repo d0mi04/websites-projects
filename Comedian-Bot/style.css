@@ -30,12 +30,47 @@ body, html {
     background-color: whitesmoke;
     border-radius: 16px;
   }
-
-.message .message-avatar {
+  
+  .message .message-avatar {
     font-size: 16px;
     margin-right: 12px;
     color: whitesmoke;
     background-color: salmon;
     padding: 10px 8px;
     border-radius: 50%;       
+  }
+  
+  .user-message {
+    margin: 12px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+  .user-message .message-content {
+    max-width: 70%;
+    padding: 12px 16px;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 16px;
+  }
+  
+  .user-message .message-avatar {
+    font-size: 16px;
+    margin-right: 12px;
+    color: white;
+    background-color: dodgerblue;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .user-input {
+    margin: 10px 0;
+    text-align: center;
+    color: dodgerblue;
+  }
+  
+  button:hover {
+    background-color: dodgerblue;
+    color:white;
   }
