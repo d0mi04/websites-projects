@@ -7,4 +7,6 @@ app.listen(port, () => {
     console.log(`App is listening on port ${port}`);
 });
 
+app.use(express.json());
+
 app.use("question", quizRoutes);

@@ -13,4 +13,13 @@ router.get("/question", (res, req) => {
     });
 });
 
+router.post("/submit-answer", (req, res) => {
+  const { questionId, answer } = req.body;
+  const isCorrect = quiz.checkAnswer(questionId, answer);
+
+  res.json({
+    correct: isCorrect,
+  });
+});
+
 module.exports = router;
