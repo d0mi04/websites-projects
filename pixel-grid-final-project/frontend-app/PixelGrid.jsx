@@ -1,7 +1,7 @@
 import React from "react";
 import "./PixelGrid.css";
 
-const PixelGrid = ({ grid }) => {
+const PixelGrid = ({ grid, updateColor }) => {
   return (
     <div className="grid">
       {grid.map((cell, index) => (
@@ -11,6 +11,7 @@ const PixelGrid = ({ grid }) => {
             gridColumnStart: cell.x + 1,
             gridRowStart: cell.y + 1,
         }}
+        onClick={() => updateColor(cell.x, cell.y)}
         ></div>
       ))}
     </div>
