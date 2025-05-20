@@ -25,3 +25,22 @@ app.get("/grid", (req, res) => {
     });
   }
 });
+
+app.post("/setGridColor", (req, res) => {
+  const {x, y, color} = req.body;
+
+  if(!color) {
+    res.status(400).json({
+      message: "Missing color value.",
+    });
+  }
+
+  const row = db.prepare(`
+    SELECT * FROM grid WHERE x = ? AND y = ?
+  `).get(x, y);
+  if(!row) {
+    return res.status(400).json({
+      message: "Invalid coordinates",
+    });
+  }
+});
